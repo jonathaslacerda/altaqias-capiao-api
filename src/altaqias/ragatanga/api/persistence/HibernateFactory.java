@@ -25,6 +25,4 @@ public class HibernateFactory {
 		if(sessionFactory == null) sessionFactory = buildSessionFactory();
 		return sessionFactory;
 	}
-
-
 }

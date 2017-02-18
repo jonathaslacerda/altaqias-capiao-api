@@ -6,7 +6,7 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 
-public class SampleResponse extends SIGSResponse {
+public class SampleResponse extends APIResponse {
 	
 	@Getter @Setter
 	private Map<Integer, Integer> quantidades;
