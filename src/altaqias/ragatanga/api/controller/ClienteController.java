@@ -1,5 +1,7 @@
 package altaqias.ragatanga.api.controller;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import altaqias.ragatanga.api.persistence.HibernateFactory;
@@ -18,7 +20,8 @@ public class ClienteController {
 	
 	public static Cliente autenticar(String email, String senha){
 		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
-		Cliente cliente = (Cliente) session.createQuery(ClienteQuery.LOGIN).
+		session.getTransaction().begin();
+		Cliente cliente = (Cliente) session.createQuery(ClienteQuery.AUTENTICAR).
 		setParameter("email", email).
 		setParameter("senha", senha).
 		uniqueResult();
@@ -26,17 +29,29 @@ public class ClienteController {
 		return cliente;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static boolean existePorEmail(String email){
-		// TODO
-		return false;
+		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
+		session.getTransaction().begin();
+		List<Cliente> clientes = (List<Cliente>) session.createQuery(ClienteQuery.EXISTE_POR_EMAIL).
+		setParameter("email", email).
+		list();
+		session.close();
+		return clientes.size() > 0 ? true : false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static boolean existePorDocumento(String documento){
-		// TODO
-		return false;
+		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
+		session.getTransaction().begin();
+		List<Cliente> clientes = (List<Cliente>) session.createQuery(ClienteQuery.EXISTE_POR_DOCUMENTO).
+		setParameter("documento", documento).
+		list();
+		session.close();
+		return clientes.size() > 0 ? true : false;
 	}
 	
 	public static void main(String[] args) {
-		autenticar("opamail", "ioasenha");
+		existePorDocumento("ioasenha");
 	}
 }
