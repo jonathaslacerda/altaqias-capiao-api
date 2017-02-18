@@ -12,7 +12,7 @@ public class Cliente {
 	private Integer id;
 	
 	@Getter @Setter
-	private Integer documento;
+	private String documento;
 	
 	@Getter @Setter
 	private String nome;
