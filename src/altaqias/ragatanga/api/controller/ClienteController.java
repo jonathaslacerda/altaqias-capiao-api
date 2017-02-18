@@ -3,11 +3,11 @@ package altaqias.ragatanga.api.controller;
 import altaqias.ragatanga.model.Cliente;
 
 public class ClienteController {
-	public void salvarOuAtualizar(){
+	public static void salvarOuAtualizar(){
 		
 	}
 	
-	public Cliente localizarPorDocumento(String documento){
+	public static Cliente localizarPorDocumento(String documento){
 		Cliente
 	}
 }
