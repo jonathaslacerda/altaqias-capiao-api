@@ -37,7 +37,7 @@ public class ClienteResource{
 		return response;
 	}
 	
-	private void validarCadastrar(ClienteCadastrarRequest request) {
+	private void validarCadastrar(ClienteCadastrarRequest request) throws ClienteCadastrarException {
 		Cliente cliente = request.getCliente();
 		if(ClienteController.existePorDocumento(cliente.getDocumento())){
 			throw new ClienteCadastrarException("O CPF " + cliente.getDocumento() + "  já está em uso");
