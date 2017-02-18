@@ -3,27 +3,27 @@ package altaqias.ragatanga.api.controller;
 import org.hibernate.Session;
 
 import altaqias.ragatanga.api.persistence.HibernateFactory;
-import altaqias.ragatanga.api.query.ClienteQuery;
-import altaqias.ragatanga.model.Cliente;
+import altaqias.ragatanga.api.query.EmpresaQuery;
+import altaqias.ragatanga.model.Empresa;
 
-public class ClienteController {
-	public static Cliente cadastrar(Cliente cliente){
+public class EmpresaController {
+	public static Empresa cadastrar(Empresa empresa){
 		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
 		session.getTransaction().begin();
-		cliente = (Cliente) session.merge(cliente);
+		empresa = (Empresa) session.merge(empresa);
 		session.getTransaction().commit();
 		session.close();
-		return cliente;
+		return empresa;
 	}
 	
-	public static Cliente autenticar(String email, String senha){
+	public static Empresa autenticar(String email, String senha){
 		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
-		Cliente cliente = (Cliente) session.createQuery(ClienteQuery.LOGIN).
+		Empresa empresa = (Empresa) session.createQuery(EmpresaQuery.LOGIN).
 		setParameter("email", email).
 		setParameter("senha", senha).
 		uniqueResult();
 		session.close();
-		return cliente;
+		return empresa;
 	}
 	
 	public static boolean existePorEmail(String email){
