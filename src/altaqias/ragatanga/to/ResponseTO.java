@@ -6,9 +6,5 @@ import lombok.Setter;
 public abstract class ResponseTO {
 	
 	@Getter @Setter
-	private String codigo;
-	
-	@Getter @Setter
-	private String mensagem;
-	
+	private MensagemTO mensagem;
 }
