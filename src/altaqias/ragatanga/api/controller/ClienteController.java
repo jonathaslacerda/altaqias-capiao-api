@@ -52,10 +52,6 @@ public class ClienteController {
 	}
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		existePorDocumento("ioasenha");
-=======
-		autenticar("opamail", "ioasenha");
->>>>>>> branch 'master' of https://github.com/jonathaslacerda/altaqias-capiao-api
 	}
 }
