@@ -11,13 +11,13 @@ import altaqias.ragatanga.api.webservice.response.SampleResponse;
 import altaqias.ragatanga.api.webservice.to.SampleTO;
 
 @Path("/")
-public class SIGSService {
+public class APIService {
 
 	@POST
-	@Path("/sample")
+	@Path("/v1/sample")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
-	public SampleResponse obterSelo(SampleTO sampleTo){
+	public SampleResponse sample(SampleTO sampleTo){
 		SampleResource resource = new SampleResource();
 		return resource.sample(sampleTo);
 	}
