@@ -53,4 +53,11 @@ public class LocalizacaoResource{
 		response.setServicos(servicos);
 		return response;
 	}
+
+	public CidadesPorEstadoResponse cidades() {
+		CidadesPorEstadoResponse response = new CidadesPorEstadoResponse();
+		List<Cidade> cidades = LocalizacaoController.todasAsCidades();
+		response.setCidades(cidades);
+		return response;
+	}
 }

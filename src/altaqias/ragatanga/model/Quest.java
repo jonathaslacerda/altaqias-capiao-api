@@ -52,6 +52,10 @@ public class Quest {
 	private BigDecimal valor;
 	
 	@Getter @Setter
+	@Column(name="fundo", columnDefinition="DECIMAL(11)", nullable=false)
+	private BigDecimal fundo;
+	
+	@Getter @Setter
 	@Temporal(TemporalType.DATE)
 	private Date prazo;
 	
@@ -65,6 +69,12 @@ public class Quest {
 	@OrderBy(value="id")
 	@Cascade({CascadeType.ALL})
 	private List<Despesa> despesas;
+	
+	@Getter @Setter
+	@OneToMany(mappedBy="quest", orphanRemoval=true)
+	@OrderBy(value="id")
+	@Cascade({CascadeType.ALL})
+	private List<Inscricao> inscricoes;
 	
 	public Quest(){
 		this.despesas = new ArrayList<Despesa>();

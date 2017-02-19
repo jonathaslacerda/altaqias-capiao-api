@@ -28,6 +28,15 @@ public class LocalizacaoService {
 		return resource.paises();
 	}
 	
+
+	@GET
+	@Path("/localizacao/v1/cidades")
+	@Produces(MediaType.APPLICATION_JSON)
+	public CidadesPorEstadoResponse cidades(){
+		LocalizacaoResource resource = new LocalizacaoResource();
+		return resource.cidades();
+	}
+	
 	@POST
 	@Path("/localizacao/v1/estados_por_pais")
 	@Consumes({MediaType.APPLICATION_JSON})

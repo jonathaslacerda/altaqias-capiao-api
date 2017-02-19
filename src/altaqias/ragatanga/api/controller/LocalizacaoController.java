@@ -58,9 +58,18 @@ public class LocalizacaoController {
 
 	@SuppressWarnings("unchecked")
 	public static List<Servico> todosOsServicos() {
-		Session session = HibernateFactory.getSessionFactory().getCurrentSession();
+		Session session = HibernateFactory.getSessionFactory().openSession();
 		session.getTransaction().begin();
 		List<Servico> resultado = (List<Servico>) session.createQuery(LocalizacaoQuery.SERVICOS).list();
+		session.close();
+		return resultado;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Cidade> todasAsCidades() {
+		Session session = HibernateFactory.getSessionFactory().openSession();
+		session.getTransaction().begin();
+		List<Cidade> resultado = (List<Cidade>) session.createQuery(LocalizacaoQuery.CIDADES).list();
 		session.close();
 		return resultado;
 	}
