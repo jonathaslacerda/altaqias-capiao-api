@@ -27,6 +27,7 @@
   <mapping class="altaqias.ragatanga.model.Estado"/>
   <mapping class="altaqias.ragatanga.model.Cidade"/>
   <mapping class="altaqias.ragatanga.model.Destino"/>
+  <mapping class="altaqias.ragatanga.model.Servico"/>
   
  </session-factory>
 </hibernate-configuration>

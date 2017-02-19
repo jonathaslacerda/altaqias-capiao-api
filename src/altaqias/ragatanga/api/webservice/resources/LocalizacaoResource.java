@@ -7,6 +7,7 @@ import altaqias.ragatanga.model.Cidade;
 import altaqias.ragatanga.model.Destino;
 import altaqias.ragatanga.model.Estado;
 import altaqias.ragatanga.model.Pais;
+import altaqias.ragatanga.model.Servico;
 import altaqias.ragatanga.to.CidadesPorEstadoRequest;
 import altaqias.ragatanga.to.CidadesPorEstadoResponse;
 import altaqias.ragatanga.to.DestinosPorCidadeRequest;
@@ -14,6 +15,7 @@ import altaqias.ragatanga.to.DestinosPorCidadeResponse;
 import altaqias.ragatanga.to.EstadosPorPaisRequest;
 import altaqias.ragatanga.to.EstadosPorPaisResponse;
 import altaqias.ragatanga.to.PaisesResponse;
+import altaqias.ragatanga.to.ServicosResponse;
 
 public class LocalizacaoResource{
 	
@@ -42,6 +44,13 @@ public class LocalizacaoResource{
 		DestinosPorCidadeResponse response = new DestinosPorCidadeResponse();
 		List<Destino> destinos = LocalizacaoController.destinosPorCidade(request.getCidade());
 		response.setDestinos(destinos);
+		return response;
+	}
+
+	public ServicosResponse servicos() {
+		ServicosResponse response = new ServicosResponse();
+		List<Servico> servicos = LocalizacaoController.todosOsServicos();
+		response.setServicos(servicos);
 		return response;
 	}
 }

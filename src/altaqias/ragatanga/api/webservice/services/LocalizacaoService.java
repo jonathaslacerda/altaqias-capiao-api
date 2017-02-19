@@ -15,6 +15,7 @@ import altaqias.ragatanga.to.DestinosPorCidadeResponse;
 import altaqias.ragatanga.to.EstadosPorPaisRequest;
 import altaqias.ragatanga.to.EstadosPorPaisResponse;
 import altaqias.ragatanga.to.PaisesResponse;
+import altaqias.ragatanga.to.ServicosResponse;
 
 @Path("/")
 public class LocalizacaoService {
@@ -53,4 +54,13 @@ public class LocalizacaoService {
 		LocalizacaoResource resource = new LocalizacaoResource();
 		return resource.destinosPorCidade(request);
 	}
+	
+	@GET
+	@Path("/localizacao/v1/servicos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ServicosResponse servicos(){
+		LocalizacaoResource resource = new LocalizacaoResource();
+		return resource.servicos();
+	}
+	
 }
