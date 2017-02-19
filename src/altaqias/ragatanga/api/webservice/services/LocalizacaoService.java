@@ -21,7 +21,6 @@ public class LocalizacaoService {
 
 	@GET
 	@Path("/localizacao/v1/paises")
-	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaisesResponse paises(){
 		LocalizacaoResource resource = new LocalizacaoResource();
@@ -29,7 +28,7 @@ public class LocalizacaoService {
 	}
 	
 	@POST
-	@Path("/clientes/v1/estados_por_pais")
+	@Path("/localizacao/v1/estados_por_pais")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
 	public EstadosPorPaisResponse estadosPorPais(EstadosPorPaisRequest request){
@@ -38,7 +37,7 @@ public class LocalizacaoService {
 	}
 	
 	@POST
-	@Path("/clientes/v1/cidades_por_estado")
+	@Path("/localizacao/v1/cidades_por_estado")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
 	public CidadesPorEstadoResponse cidadesPorEstado(CidadesPorEstadoRequest request){
@@ -47,7 +46,7 @@ public class LocalizacaoService {
 	}
 	
 	@POST
-	@Path("/clientes/v1/destinos_por_cidade")
+	@Path("/localizacao/v1/destinos_por_cidade")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces(MediaType.APPLICATION_JSON)
 	public DestinosPorCidadeResponse destinosPorCidade(DestinosPorCidadeRequest request){

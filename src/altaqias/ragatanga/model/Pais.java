@@ -26,7 +26,7 @@ public class Pais {
 	private int id;
 	
 	@Getter @Setter
-	@Column(name="senha", columnDefinition="VARCHAR(25)", nullable=false)
+	@Column(name="nome", columnDefinition="VARCHAR(100)", nullable=false)
 	private String nome;
 	
 }

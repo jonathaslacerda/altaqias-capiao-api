@@ -8,7 +8,7 @@ public class APIApplication extends ResourceConfig {
 
 	public APIApplication() {
 		register(JacksonFeature.class);  
-		packages("altaquias.ragatanga.api.webservice.services"); 
+		packages("altaqias.ragatanga.api.webservice.services"); 
 		
 		startTasks();
 	}

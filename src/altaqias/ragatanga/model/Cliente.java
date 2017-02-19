@@ -1,8 +1,5 @@
 package altaqias.ragatanga.model;
 
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,20 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -63,17 +51,11 @@ public class Cliente {
 	private String telefone;
 	
 	@Getter @Setter
-	@OneToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="nacionalidade")
 	private Pais nacionalidade;
 	
 	@Getter @Setter
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataNascimento;
-	
-	@Getter @Setter
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "idiomas_clientes", joinColumns = @JoinColumn(name = "idioma"), inverseJoinColumns = @JoinColumn(name = "cliente"))
-	private List<Idioma> idiomas;
-	
+	@Column(name="idiomas", columnDefinition="VARCHAR(200)")
+	private String idiomas;
 }

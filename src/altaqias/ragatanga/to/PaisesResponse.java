@@ -10,4 +10,8 @@ public class PaisesResponse extends ResponseTO {
 
 	@Getter @Setter
 	List<Pais> paises;
+	
+	public PaisesResponse(){
+		this.setMensagem(new MensagemTO());
+	}
 }

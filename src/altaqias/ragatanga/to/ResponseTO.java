@@ -6,5 +6,5 @@ import lombok.Setter;
 public abstract class ResponseTO {
 	
 	@Getter @Setter
-	private MensagemTO mensagem;
+	private MensagemTO mensagem = new MensagemTO();
 }

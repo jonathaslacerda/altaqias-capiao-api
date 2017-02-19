@@ -18,9 +18,4 @@
     <servlet-name>jersey-servlet</servlet-name>
     <url-pattern>/servico/*</url-pattern>
   </servlet-mapping>
-  <context-param>
-    <description>Diretório dos arquivos de selos</description>
-    <param-name>arquivo.selos</param-name>
-    <param-value>\ARQUIVOS\SELOS\</param-value>
-  </context-param>
 </web-app>
