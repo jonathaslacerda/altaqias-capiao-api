@@ -60,19 +60,12 @@ public class Quest {
 	private Destino destino;
 	
 	@Getter @Setter
-	@OneToMany(mappedBy="quest", orphanRemoval=true)
-	@OrderBy(value="id")
-	@Cascade({CascadeType.ALL})
-	private List<Despesa> despesas;
-	
-	@Getter @Setter
 	@OneToMany(mappedBy="quest", orphanRemoval=true, fetch=FetchType.EAGER)
 	@OrderBy(value="id")
 	@Cascade({CascadeType.ALL})
 	private List<Inscricao> inscricoes;
 	
 	public Quest(){
-		this.despesas = new ArrayList<Despesa>();
 		this.inscricoes = new ArrayList<Inscricao>();
 		this.fundo = new BigDecimal(0.0);
 	}

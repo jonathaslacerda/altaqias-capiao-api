@@ -24,7 +24,6 @@
  
   <mapping class="altaqias.ragatanga.model.Cidade"/>
   <mapping class="altaqias.ragatanga.model.Cliente"/>
-  <mapping class="altaqias.ragatanga.model.Despesa"/>
   <mapping class="altaqias.ragatanga.model.Destino"/>
   <mapping class="altaqias.ragatanga.model.Estado"/>
   <mapping class="altaqias.ragatanga.model.Quest"/>
