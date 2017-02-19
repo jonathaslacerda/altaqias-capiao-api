@@ -30,6 +30,8 @@
   <mapping class="altaqias.ragatanga.model.Quest"/>
   <mapping class="altaqias.ragatanga.model.Pais"/>
   <mapping class="altaqias.ragatanga.model.Servico"/>
+  <mapping class="altaqias.ragatanga.model.Autorizacao"/>
+  <mapping class="altaqias.ragatanga.model.Inscricao"/>
   
  </session-factory>
 </hibernate-configuration>

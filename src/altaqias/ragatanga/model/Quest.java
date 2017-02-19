@@ -2,7 +2,6 @@ package altaqias.ragatanga.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -56,12 +53,9 @@ public class Quest {
 	private BigDecimal fundo;
 	
 	@Getter @Setter
-	@Temporal(TemporalType.DATE)
-	private Date prazo;
-	
-	@Getter @Setter
 	@ManyToOne
 	@JoinColumn(name="destino")
+	@Cascade({CascadeType.ALL})
 	private Destino destino;
 	
 	@Getter @Setter
@@ -78,5 +72,7 @@ public class Quest {
 	
 	public Quest(){
 		this.despesas = new ArrayList<Despesa>();
+		this.inscricoes = new ArrayList<Inscricao>();
+		this.fundo = new BigDecimal(0.0);
 	}
 }

@@ -20,7 +20,7 @@ import altaqias.ragatanga.to.ServicosResponse;
 @Path("/")
 public class LocalizacaoService {
 
-	@GET
+	@POST
 	@Path("/localizacao/v1/paises")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PaisesResponse paises(){
@@ -29,7 +29,7 @@ public class LocalizacaoService {
 	}
 	
 
-	@GET
+	@POST
 	@Path("/localizacao/v1/cidades")
 	@Produces(MediaType.APPLICATION_JSON)
 	public CidadesPorEstadoResponse cidades(){
