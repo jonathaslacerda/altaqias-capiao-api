@@ -5,15 +5,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -37,12 +44,15 @@ public class Quest {
 	private Cliente criador;
 	
 	@Getter @Setter
+	@Column(name="maximoParticipantes", columnDefinition="INTEGER(11)", nullable=false)
 	private Integer maximoParticipantes;
 	
 	@Getter @Setter
+	@Column(name="valor", columnDefinition="DECIMAL(11)", nullable=false)
 	private BigDecimal valor;
 	
 	@Getter @Setter
+	@Temporal(TemporalType.DATE)
 	private Date prazo;
 	
 	@Getter @Setter
@@ -51,6 +61,9 @@ public class Quest {
 	private Destino destino;
 	
 	@Getter @Setter
+	@OneToMany(mappedBy="quest", orphanRemoval=true)
+	@OrderBy(value="id")
+	@Cascade({CascadeType.ALL})
 	private List<Despesa> despesas;
 	
 	public Quest(){
