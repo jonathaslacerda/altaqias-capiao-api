@@ -1,7 +1,6 @@
 package altaqias.ragatanga.api.webservice.services;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -39,7 +38,7 @@ public class QuestService {
 		return resource.entrar(request);
 	}
 	
-	@GET
+	@POST
 	@Path("/quest/v1/ultimas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public QuestUltimasResponse ultimas(){
@@ -47,7 +46,7 @@ public class QuestService {
 		return resource.questsUltimas();
 	}
 	
-	@GET
+	@POST
 	@Path("/quest/v1/inscricoes_pendentes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public InscricoesPendentesResponse inscricoesPendentes(InscricoesPendentesRequest request){

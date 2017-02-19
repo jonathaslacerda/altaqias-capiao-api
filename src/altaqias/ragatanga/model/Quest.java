@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -65,7 +66,7 @@ public class Quest {
 	private List<Despesa> despesas;
 	
 	@Getter @Setter
-	@OneToMany(mappedBy="quest", orphanRemoval=true)
+	@OneToMany(mappedBy="quest", orphanRemoval=true, fetch=FetchType.EAGER)
 	@OrderBy(value="id")
 	@Cascade({CascadeType.ALL})
 	private List<Inscricao> inscricoes;

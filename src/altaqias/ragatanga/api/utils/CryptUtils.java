@@ -9,27 +9,18 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-/**
- * Simple TripleDES Encrypt/Decrypt Test 
- * sha1, utf-8, no padding
- *
- * uses commons-codec-1.6 
- * javac -cp :commons-codec-1.6.jar TripleDESTest.java
- * java -cp :commons-codec-1.6.jar TripleDESTest 
- */
-
 public class CryptUtils {
 
+	
+	
 	public static void main(String[] args) throws Exception {
-		System.out.println(toMD5("mizera"));
-		
 	    String text = "textToEncrypt";
 	    String codedtext = new CryptUtils().encrypt(text,"SecretKey");
 	    String decodedtext = new CryptUtils().decrypt(codedtext,"SecretKey");
 	 	System.out.println(codedtext + " ---> " + decodedtext);
 	  }
   
-	private String encrypt(String message, String secretKey) throws Exception {
+	public String encrypt(String message, String secretKey) throws Exception {
 		MessageDigest md = MessageDigest.getInstance("SHA-1");
 		byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
 		byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
@@ -46,7 +37,7 @@ public class CryptUtils {
 	    return base64EncryptedString;
 	}
 
-	private String decrypt(String encryptedText, String secretKey) throws Exception {
+	public String decrypt(String encryptedText, String secretKey) throws Exception {
 	    byte[] message = Base64.decodeBase64(encryptedText.getBytes("utf-8"));
 		
 		MessageDigest md = MessageDigest.getInstance("SHA-1");

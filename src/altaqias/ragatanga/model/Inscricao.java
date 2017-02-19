@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @DynamicUpdate(value=true)
 @DynamicInsert(value=true)
-@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Inscricao {
 
 	@Getter @Setter
@@ -44,6 +44,6 @@ public class Inscricao {
 	private BigDecimal valor;
 	
 	@Getter @Setter
-	@Column(name="nome", columnDefinition="VARCHAR(100)")
+	@Column(name="tokenAutorizacao", columnDefinition="VARCHAR(100)")
 	private String tokenAutorizacao;
 }

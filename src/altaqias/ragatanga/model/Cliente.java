@@ -39,11 +39,11 @@ public class Cliente {
 	private String nome;
 	
 	@Getter @Setter
-	@Column(name="email", columnDefinition="VARCHAR(50)", nullable=false)
+	@Column(name="email", columnDefinition="VARCHAR(100)", nullable=false)
 	private String email;
 	
 	@Getter @Setter
-	@Column(name="senha", columnDefinition="VARCHAR(25)", nullable=false)
+	@Column(name="senha", columnDefinition="VARCHAR(200)", nullable=false)
 	private String senha;
 	
 	@Getter @Setter

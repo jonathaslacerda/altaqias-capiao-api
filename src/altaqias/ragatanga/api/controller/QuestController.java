@@ -23,9 +23,8 @@ public class QuestController {
 		Session session = HibernateFactory.getSessionFactory().openSession();
 		session.getTransaction().begin();
 		List<Quest> resultado = (List<Quest>) session.createQuery(QuestQuery.ULTIMAS_QUESTS_ABERTAS)
-				.setMaxResults(quantidade)
 				.list();
-		session.close();
+//		session.close();
 		return resultado;
 	}
 

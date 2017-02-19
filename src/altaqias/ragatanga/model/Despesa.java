@@ -24,7 +24,7 @@ import lombok.Setter;
 @Entity
 @DynamicUpdate(value=true)
 @DynamicInsert(value=true)
-@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Despesa {
 
 	@Getter @Setter
